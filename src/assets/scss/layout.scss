@@ -24,74 +24,162 @@
     }
 }
 
-.site-nav {
-    float: right;
-    line-height: 56px;
+aside nav {
+    // display: block;
+    position: fixed;
+    // right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    // text-align: right;
+    z-index: 100;
 
-    .menu-icon {
-        display: none;
-    }
+    a {
+      display: block;
+      line-height: 2.6;
+      position: relative;
+      padding-right: 20px;
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+        &:hover {
+            .nav-label {
+                transform: translate(6vw) scale(1.4);
+                opacity: 1;
+                visibility: visible;
 
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
-    }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: $spacing-unit / 2;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
             }
         }
-
-        .trigger {
-            clear: both;
-            display: none;
+    }
+    // .nav-dot {
+    //     display: block;
+    //     width: 10px;
+    //     height: 10px;
+    //     position: absolute;
+    //     left: 0;
+    //     top: 50%;
+    //     background-color: transparentize($lightest,.1);
+    //     -webkit-border-radius: 100%;
+    //     border-radius: 100%;
+    //     transform: translateY(-50%);
+    //     transition: all 0.3s linear;
+    // }
+    .nav-label {
+        display: block;
+        opacity: 0.7;
+        //visibility: hidden;
+        transform: translateX(2vw);
+        transition: all 0.2s cubic-bezier(.17,.67,.83,.67);
+    }
+    &.is-dark {
+        a {
+            color: $darkest;
         }
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
+        .nav-dot {
+            background-color: transparentize($black,.5);
         }
-
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-
-            &:not(:last-child) {
-                margin-right: 0;
-            }
-            margin-left: 20px;
+    }
+    &.is-light {
+        a {
+            color: $lightest;
         }
+        .nav-dot {
+            background-color: transparentize($lightest,.5);
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        width: auto;
+        list-style: none;
     }
 }
+.scroll-hint {
+    color: $darkest;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    //transform: translate(-50%, -50%);
+    padding: 10px 40px;
+    border: 3px $lightest solid;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', Helvetica, Helvetica Neue, Arial, sans-serif;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 2;
+}
 
+//
+// .site-nav {
+//     float: right;
+//     line-height: 56px;
+//
+//     .menu-icon {
+//         display: none;
+//     }
+//
+//     .page-link {
+//         color: $text-color;
+//         line-height: $base-line-height;
+//
+//         // Gaps between nav items, but not on the last one
+//         &:not(:last-child) {
+//             margin-right: 20px;
+//         }
+//     }
+//
+//     @include media-query($on-palm) {
+//         position: absolute;
+//         top: 9px;
+//         right: $spacing-unit / 2;
+//         background-color: $background-color;
+//         border: 1px solid $grey-color-light;
+//         border-radius: 5px;
+//         text-align: right;
+//
+//         .menu-icon {
+//             display: block;
+//             float: right;
+//             width: 36px;
+//             height: 26px;
+//             line-height: 0;
+//             padding-top: 10px;
+//             text-align: center;
+//
+//             > svg {
+//                 width: 18px;
+//                 height: 15px;
+//
+//                 path {
+//                     fill: $grey-color-dark;
+//                 }
+//             }
+//         }
+//
+//         .trigger {
+//             clear: both;
+//             display: none;
+//         }
+//
+//         &:hover .trigger {
+//             display: block;
+//             padding-bottom: 5px;
+//         }
+//
+//         .page-link {
+//             display: block;
+//             padding: 5px 10px;
+//
+//             &:not(:last-child) {
+//                 margin-right: 0;
+//             }
+//             margin-left: 20px;
+//         }
+//     }
+// }
+//
 
 
 /**

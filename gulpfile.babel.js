@@ -37,6 +37,9 @@ gulp.task('clean:gzip', () => {
 gulp.task('clean:metadata', () => {
   return del(['src/.jekyll-metadata']);
 });
+gulp.task('clean:videos', () => {
+  return del(['.tmp/assets/videos', 'dist/assets/videos']);
+});
 
 // 'gulp jekyll' -- builds your site with development settings
 // 'gulp jekyll --prod' -- builds your site with production settings
@@ -92,6 +95,48 @@ gulp.task('styles', () =>
     .pipe($.if(!argv.prod, browserSync.stream({match: '**/*.css'})))
 );
 
+
+gulp.task('scripts:vendor', () =>
+  // NOTE: The order here is important since it's concatenated in order from
+  // top to bottom, so you want vendor scripts etc on top
+  gulp.src([
+    'bower_components/jquery/dist/jquery.js',
+    'bower_components/classie/classie.js',
+    'bower_components/flickity/dist/flickity.pkgd.min.js',
+    'bower_components/gsap/src/uncompressed/TweenMax.js',
+    'bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js',
+    'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+    'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
+    'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addindicators.js',
+    'bower_components/video.js/dist/video.js',
+    'bower_components/videojs-youtube/dist/Youtube.min.js',
+    'bower_components/videojs-caption/dist/videojs.caption.js'
+  ])
+    .pipe($.newer('.tmp/assets/javascript/build_vendor.js', {dest: '.tmp/assets/javascript', ext: '.js'}))
+    .pipe($.if(!argv.prod, $.sourcemaps.init()))
+    .pipe($.concat('build_vendor.js'))
+    .pipe($.size({
+      title: 'scripts',
+      showFiles: true
+    }))
+    .pipe($.if(argv.prod, $.rename({suffix: '.min'})))
+    .pipe($.if(argv.prod, $.if('*.js', $.uglify({preserveComments: 'some'}))))
+    .pipe($.if(argv.prod, $.size({
+      title: 'minified scripts',
+      showFiles: true
+    })))
+    .pipe($.if(argv.prod, $.rev()))
+    .pipe($.if(!argv.prod, $.sourcemaps.write('.')))
+    .pipe($.if(argv.prod, gulp.dest('.tmp/assets/javascript')))
+    .pipe($.if(argv.prod, $.if('*.js', $.gzip({append: true}))))
+    .pipe($.if(argv.prod, $.size({
+      title: 'gzipped scripts',
+      gzip: true,
+      showFiles: true
+    })))
+    .pipe(gulp.dest('.tmp/assets/javascript'))
+    .pipe($.if(!argv.prod, browserSync.stream({match: '**/*.js'})))
+);
 // 'gulp scripts' -- creates a index.js file from your JavaScript files and
 // creates a Sourcemap for it
 // 'gulp scripts --prod' -- creates a index.js file from your JavaScript files,
@@ -129,6 +174,7 @@ gulp.task('scripts', () =>
     .pipe($.if(!argv.prod, browserSync.stream({match: '**/*.js'})))
 );
 
+
 // 'gulp inject:head' -- injects our style.css file into the head of our HTML
 gulp.task('inject:head', () =>
   gulp.src('src/_includes/head.html')
@@ -155,7 +201,12 @@ gulp.task('images', () =>
     .pipe(gulp.dest('.tmp/assets/images'))
     .pipe($.size({title: 'images'}))
 );
-
+// 'gulp fonts' -- copies your fonts to the temporary assets folder
+gulp.task('videos', () =>
+  gulp.src('src/assets/videos/**/*')
+    .pipe(gulp.dest('.tmp/assets/videos'))
+    .pipe($.size({title: 'videos'}))
+);
 // 'gulp fonts' -- copies your fonts to the temporary assets folder
 gulp.task('fonts', () =>
   gulp.src('src/assets/fonts/**/*')
@@ -217,14 +268,19 @@ gulp.task('serve', () => {
   gulp.watch('src/assets/javascript/**/*.js', gulp.series('scripts'));
   gulp.watch('src/assets/scss/**/*.scss', gulp.series('styles'));
   gulp.watch('src/assets/images/**/*', reload);
+  gulp.watch('src/assets/videos/**/*', reload);
 });
 
 // 'gulp assets' -- cleans out your assets and rebuilds them
 // 'gulp assets --prod' -- cleans out your assets and rebuilds them with
 // production settings
+// gulp.task('assets', gulp.series(
+//   gulp.series('clean:assets'),
+//   gulp.parallel('styles', 'scripts', 'fonts', 'images')
+// ));
 gulp.task('assets', gulp.series(
   gulp.series('clean:assets'),
-  gulp.parallel('styles', 'scripts', 'fonts', 'images')
+  gulp.parallel('styles', 'scripts:vendor', 'scripts', 'fonts', 'images', 'videos')
 ));
 
 // 'gulp assets:copy' -- copies the assets into the dist folder, needs to be

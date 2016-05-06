@@ -1,0 +1,97 @@
+---
+layout: default
+---
+<!-- <h1>{{ page.title }}</h1> -->
+
+<aside class="sidebar">
+  <nav class="chapter__nav">
+    <ul>
+      {% for theme in site.posts reversed %}
+      <li><a href="#{{theme.theme_id}}"><span class="nav-dot"></span><span class="nav-label">{{theme.title}}</span></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>
+
+{% for theme in site.posts reversed %}
+
+<section class="theme" id="{{theme.theme_id}}">
+
+  <header class="theme--header">
+    <h2 class="slideInUp">{{theme.title}}</h2>
+  </header>
+
+  <figure id="video_player" class="main_video slideInUp slideInUp2">
+    <div id="video_container" class="full--video">
+      <video
+        id="{{theme.theme_id}}"
+        class="video-js vjs-default-skin"
+        controls
+        width="640" height="264"
+        data-setup='{ "fluid":"true",
+          "aspectRatio":"640:360",
+          "techOrder": ["youtube"],
+          "sources": [{
+            "type": "video/youtube",
+            "src": "https://www.youtube.com/watch?v={{theme.youtube}}"}],
+            "youtube": { "iv_load_policy": 1 }
+          }'>
+        <track kind="captions" src="{{base}}/assets/videos/sample.webvtt" srclang="en" label="English" default>
+      </video>
+
+      <!-- <video id="video_1" class="video-js  vjs-polyzor-skin"
+        controls preload="auto" width="640" height="360"
+        poster="//unsplash.it/640/360"
+        data-setup='{  "fluid":"true",
+        "aspectRatio":"640:360"
+        }'>
+
+        <source src="{{base}}/assets/videos/{{post.video}}.mp4" type="video/mp4">
+        <source src="{{base}}/assets/videos/{{post.video}}.webm" type="video/webm">
+
+        <track kind="captions" src="../assets/videos/sample.webvtt" srclang="en" label="English" default>
+
+        <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser
+        that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+
+     </video> -->
+
+    </div>
+    <figcaption class="video--caption">
+      Possible video title
+    </figcaption>
+  </figure>
+
+  <aside class="extras">
+
+    <div class="cards">
+
+      <div class="bullet slideInUp slideInUp3">
+        <div class="bullet-icon bullet-icon-1">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/49db8c0f2f8066c2c3a275781503fe3303a1a9fc/source/images/placeholder.png" alt="">
+        </div>
+        <div class="bullet-content">
+          <h2>This Bullet Title</h2>
+          <p>Lorem dolor sit amet consectetur adipisicing elit. Doloremque, minus, blanditiis, voluptatibus nulla quia ipsam sequi quos iusto aliquam iste magnam accusamus molestias quo illum impedit. Odit officia autem.</p>
+        </div>
+      </div>
+
+      <div class="bullet slideInUp slideInUp4">
+        <div class="bullet-icon bullet-icon-2">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/49db8c0f2f8066c2c3a275781503fe3303a1a9fc/source/images/placeholder.png" alt="">
+        </div>
+        <div class="bullet-content">
+          <h2>Another Bullet Title</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, minus, blanditiis, voluptatibus nulla quia ipsam sequi quos iusto aliquam iste magnam accusamus molestias quo illum.</p>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</section>
+
+
+{% endfor %}
