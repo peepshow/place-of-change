@@ -1,0 +1,27 @@
+---
+layout: default
+type: chapter
+chapter_number: "2"
+image: chapter_2_feature.jpg
+
+en:
+  title: Transmission
+  intro: "An introduction to malaria, what is it and how it impacts us."
+vi:
+  title: Viet
+  intro: viet
+---
+<div class="chapter_wrap">
+<aside>
+  {% include chapter_nav.html %}
+  {% include theme_nav.html chapter_number=page.chapter_number %}
+</aside>
+
+<header id="intro" class="header--chapter">
+  {% include chapter_head.html %}
+</header>
+
+<main class="main" role="main">
+  {% include theme_loop.html chapter_number=page.chapter_number %}
+</main>
+</div>

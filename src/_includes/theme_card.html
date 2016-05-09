@@ -1,0 +1,54 @@
+
+{% for chapter in site.data.themes %}
+  {% if theme.category == include.category %}
+
+    <section class="theme" id="{{theme.id}}">
+      <header class="theme--header">
+        <h2 class="Content-title js-Content-title slideInUp">{{theme.title[site.active_lang]}}</h2>
+      </header>
+      <figure id="video_player" class="main_video slideInUp slideInUp2">
+        <div id="video_container" class="full--video">
+          <!-- <video
+            id="{{theme.id}}"
+            class="video-js vjs-default-skin"
+            controls
+            width="640" height="264"
+            data-setup='{ "fluid":"true",
+              "aspectRatio":"640:360",
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "https://www.youtube.com/watch?v={{chapter.youtube}}"}],
+                "youtube": { "iv_load_policy": 1 }
+              }'>
+            <track kind="captions" src="{{ site.baseurl }}/assets/videos/sample.webvtt" srclang="en" label="English" default>
+          </video> -->
+
+          <video id="video_1" class="video-js  vjs-polyzor-skin"
+            controls preload="auto" width="640" height="360"
+            poster="//unsplash.it/640/360"
+            data-setup='{  "fluid":"true",
+            "aspectRatio":"640:360"
+            }'>
+
+            <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.mp4" type="video/mp4">
+            <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.webm" type="video/webm">
+
+            <track kind="captions" src="{{site.baseurl}}/assets/videos/{{theme.video}}.webvtt" srclang="en" label="English" default>
+
+            <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser
+            that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+
+         </video>
+
+        </div>
+        <figcaption class="video--caption">
+          Possible video title
+        </figcaption>
+      </figure>
+    </section>
+
+    {% endif %}
+{% endfor %}

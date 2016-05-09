@@ -3,6 +3,9 @@
 title: Place of Change
 description: Educational documentary and learning module focusing on on infectious disease.
 url: https://peepshow.github.io
+baseurl: ""
+
+active_lang: en
 
 # Used so Jekyll outputs the site correctly so Gulp can do what it wants
 source: src
@@ -14,10 +17,10 @@ exclude: ['assets']
 # NOTE: Don't use @ in front of your Twitter username
 author:
   name: Regan Vause
-  email: 
+  email:
   uri: Home
-  bio: 
-  twitter: 
+  bio:
+  twitter:
   github: peepshow
 
 # _config.build.yml overwrites these options when you run `gulp build`
@@ -30,7 +33,7 @@ lsi: false
 limit_posts: 10
 
 # Permalink structure and pagination options
-permalink: pretty
+permalink: none
 paginate: 10
 paginate_path: 'page:num'
 excerpt_separator: '<!--more-->'

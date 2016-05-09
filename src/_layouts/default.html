@@ -5,21 +5,18 @@
 
   <body>
 
-    {% include header.html %}
+    <div class="wrap">
+      <!-- <div class="bg"></div> -->
+      {{ content }}
+    </div>
 
-    <!-- <div class="page-content"> -->
-      <div class="wrap">
-        {{ content }}
-      </div>
-    <!-- </div> -->
 
-    {% include footer.html %}
 
 
   <!-- JS -->
   <!-- inject:js -->
-  <script src="/assets/javascript/build_vendor.js"></script>
-  <script src="/assets/javascript/index.js"></script>
+  <script src="{{ site.baseurl }}/assets/javascript/build_vendor-2b0b13e00b.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/javascript/index-8613ba7f52.min.js"></script>
   <!-- endinject -->
 
   </body>

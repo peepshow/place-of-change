@@ -1,22 +1,101 @@
 ---
 layout: default
+title: Overview
 ---
 
-<div class="home">
 
-  <h1 class="page-heading">Posts</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
+
+<section class="home_chapters">
+	<ul id="scene" class="parallax_wrap">
+
+    <li class="layer" data-depth="0.60">
+      <div class="background"></div>
+    </li>
+
+    <li class="layer" data-depth="0.40">
+      <header class="home_header">
+        <hgroup>
+          <h1>Place of Change</h1>
+          <h2>Understanding Malaria</h2>
+          <p>Learn where we stand in Vietnam in the fight against infectious disease. And meet the people effeced by the disease.</p>
+        </hgroup>
+      </header>
+    </li>
+
+    <li class="layer" data-depth="0.20">
+      <header class="home_subheader">
+        <h3>Explore the chapters</h3>
+        <p>Learn about malaria and where we stand in Vietnam in the fight against infectious disease</p>
+      </header>
+    </li>
+
+    <li class="layer" data-depth="0.10">
+      <div class="carousel_wrap">
+        <div id="flat">
+          <ul>
+            {% for chapter in site.pages %}
+              {% if chapter.type =='chapter' %}
+
+              <li>
+                <div class="chapter-card" data-depth="0.80">
+                  <a href="{{ site.baseurl }}{{chapter.url}}" class="{% if page.url == '/chapters/chapter1.html' %}active{% endif %}">
+                    <div data-depth="0.90" class="layer-1"><img src="{{site.baseurl}}/assets/images/{{chapter.image}}" alt="Chapter {{chapter.chapter_number}}: {{ chapter.[site.active_lang]title }}" /></div>
+                    <div data-offset="3" class="layer-2">
+                      <h2>{{ chapter.[site.active_lang]title }}</h2>
+                    </div>
+
+                    <div class="layer-4">
+                      <div class="skewed">
+                        <p>{{chapter.[site.active_lang]intro}}</p>
+                      </div>
+                    </div>
+                    <div class="ribbon-1">
+                      <h3>{{chapter.chapter_number}}</h3>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </li>
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-</div>
+
+</section>
+
+
+<section class="home_community">
+  <header class="home_subheader">
+    <h3>Community Narritives</h3>
+    <p>Learn about malaria and where we stand in Vietnam in the fight against infectious disease</p>
+  </header>
+
+  <div class="comm_grid cd-section">
+      <div href="#0" class="diamond" id="story1">
+         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-woman-2x.jpg" alt>
+          <span>Women</span>
+      </div>
+    	<a href="#" class="diamond" id="story2">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-man-2x.jpg" alt>
+          <span>Men</span>
+      </a>
+    	  <a href="#" class="diamond" id="story3">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
+          <span>Children</span>
+      </a>
+      <a href="#" class="diamond" id="story4">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
+        <span>Children</span>
+      </a>
+
+  </div>
+</section>
+
+</section> <!-- .cd-section -->

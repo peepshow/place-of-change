@@ -1,0 +1,104 @@
+#
+# Website copy document for translation.
+# This is the copy that is used throughout the website.
+#
+# Please add more if needed, this is just a sample of what is currently in use.
+
+chapter:
+  en: "Chapter"
+  vi: "Chương"
+
+sitename:
+  en: "Place of Change"
+  vi: ""
+
+sitetopic:
+  en: "Understanding Malaria"
+  vi:
+
+homepage:
+  en: "Learn where we stand in <strong>Vietnam bold</strong> in the fight against infectious disease. And meet the people effeced by the disease."
+  vi: ""
+
+
+
+
+# -----------------------
+# Chapter One
+#
+layout: default
+type: chapter
+chapter_number: "1"
+feature_image: chapter_1_feature.jpg
+
+en:
+  title: What it is
+  intro: "An introduction to malaria, what is it and how it impacts us."
+vi:
+  title: "Những gì nó là"
+  intro: "Giới thiệu về bệnh sốt rét , nó là gì và nó như thế nào tác động chúng ta."
+
+
+
+# -----------------------
+# Chapter Two
+#
+layout: default
+type: chapter
+chapter_number: "2"
+feature_image: chapter_2_feature.jpg
+
+en:
+  title:
+  intro:
+vi:
+  title:
+  intro:
+
+
+# -----------------------
+# Chapter Three
+#
+layout: default
+type: chapter
+chapter_number: "3"
+feature_image: chapter_3_feature.jpg
+
+en:
+  title:
+  intro:
+vi:
+  title:
+  intro:
+
+
+# -----------------------
+# Chapter Four
+#
+layout: default
+type: chapter
+chapter_number: "4"
+feature_image: chapter_4_feature.jpg
+
+en:
+  title:
+  intro:
+vi:
+  title:
+  intro:
+
+
+# -----------------------
+# Chapter Five
+#
+layout: default
+type: chapter
+chapter_number: "5"
+feature_image: chapter_5_feature.jpg
+
+en:
+  title:
+  intro:
+vi:
+  title:
+  intro:

@@ -110,7 +110,9 @@ gulp.task('scripts:vendor', () =>
     'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addindicators.js',
     'bower_components/video.js/dist/video.js',
     'bower_components/videojs-youtube/dist/Youtube.min.js',
-    'bower_components/videojs-caption/dist/videojs.caption.js'
+    'bower_components/videojs-caption/dist/videojs.caption.js',
+    'bower_components/jquery-flipster/dist/jquery.flipster.min.js',
+    'bower_components/parallax/deploy/jquery.parallax.min.js'
   ])
     .pipe($.newer('.tmp/assets/javascript/build_vendor.js', {dest: '.tmp/assets/javascript', ext: '.js'}))
     .pipe($.if(!argv.prod, $.sourcemaps.init()))
@@ -175,11 +177,26 @@ gulp.task('scripts', () =>
 );
 
 
-// 'gulp inject:head' -- injects our style.css file into the head of our HTML
+// // 'gulp inject:head' -- injects our style.css file into the head of our HTML
+// gulp.task('inject:head', () =>
+//   gulp.src('src/_includes/head.html')
+//     .pipe($.inject(gulp.src('.tmp/assets/stylesheets/*.css',
+//                             {read: false}), {ignorePath: '.tmp'}))
+//     .pipe(gulp.dest('src/_includes'))
+// );
+//
+// // 'gulp inject:footer' -- injects our index.js file into the end of our HTML
+// gulp.task('inject:footer', () =>
+//   gulp.src('src/_layouts/default.html')
+//     .pipe($.inject(gulp.src('.tmp/assets/javascript/*.js',
+//                             {read: false}), {ignorePath: '.tmp'}))
+//     .pipe(gulp.dest('src/_layouts'))
+// );
+
 gulp.task('inject:head', () =>
   gulp.src('src/_includes/head.html')
     .pipe($.inject(gulp.src('.tmp/assets/stylesheets/*.css',
-                            {read: false}), {ignorePath: '.tmp'}))
+                            {read: false}), {addPrefix: '{{ site.baseurl }}', ignorePath: '.tmp', addRootSlash:false}))
     .pipe(gulp.dest('src/_includes'))
 );
 
@@ -187,9 +204,11 @@ gulp.task('inject:head', () =>
 gulp.task('inject:footer', () =>
   gulp.src('src/_layouts/default.html')
     .pipe($.inject(gulp.src('.tmp/assets/javascript/*.js',
-                            {read: false}), {ignorePath: '.tmp'}))
+                            {read: false}), {addPrefix: '{{ site.baseurl }}', ignorePath: '.tmp', addRootSlash:false}))
     .pipe(gulp.dest('src/_layouts'))
 );
+
+
 
 // 'gulp images' -- optimizes and caches your images
 gulp.task('images', () =>
@@ -235,6 +254,14 @@ gulp.task('html', () =>
     .pipe($.if(argv.prod, gulp.dest('dist')))
 );
 
+// // 'gulp deploy' -- pushes your dist folder to Github
+// gulp.task('deploy', () => {
+//   return gulp.src('dist/**/*')
+//     .pipe($.ghPages({
+//       branch: "master"
+//     }));
+// });
+
 // 'gulp deploy' -- pushes your dist folder to Github
 gulp.task('deploy', () => {
   return gulp.src('dist/**/*')
@@ -263,12 +290,15 @@ gulp.task('serve', () => {
   });
 
   // Watch various files for changes and do the needful
-  gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.yml'], gulp.series('jekyll', reload));
+  gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.yml'], gulp.series('jekyll')).on('change', reload)
+  //gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.yml'], gulp.series('jekyll', reload));
   gulp.watch(['src/**/*.xml', 'src/**/*.txt'], gulp.series('jekyll'));
   gulp.watch('src/assets/javascript/**/*.js', gulp.series('scripts'));
   gulp.watch('src/assets/scss/**/*.scss', gulp.series('styles'));
-  gulp.watch('src/assets/images/**/*', reload);
-  gulp.watch('src/assets/videos/**/*', reload);
+  // gulp.watch('src/assets/images/**/*', reload);
+  // gulp.watch('src/assets/videos/**/*', reload);
+  gulp.watch('src/assets/images/**/*').on('change', reload)
+  gulp.watch('src/assets/videos/**/*').on('change', reload)
 });
 
 // 'gulp assets' -- cleans out your assets and rebuilds them
