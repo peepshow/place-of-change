@@ -11,7 +11,7 @@
         <div id="video_container" class="full--video">
           <!-- <video
             id="{{theme.id}}"
-            class="video-js vjs-default-skin"
+            class="video-js  vjs-polyzor-skin"
             controls
             width="640" height="264"
             data-setup='{ "fluid":"true",
@@ -19,10 +19,9 @@
               "techOrder": ["youtube"],
               "sources": [{
                 "type": "video/youtube",
-                "src": "https://www.youtube.com/watch?v={{chapter.youtube}}"}],
+                "src": "https://www.youtube.com/watch?v={{theme.youtube}}"}],
                 "youtube": { "iv_load_policy": 1 }
               }'>
-            <track kind="captions" src="{{ site.baseurl }}/assets/videos/sample.webvtt" srclang="en" label="English" default>
           </video> -->
 
           <video id="video_1" class="video-js  vjs-polyzor-skin"
@@ -31,17 +30,8 @@
             data-setup='{  "fluid":"true",
             "aspectRatio":"640:360"
             }'>
-
             <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.mp4" type="video/mp4">
             <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.webm" type="video/webm">
-
-            <!-- <track kind="captions" src="{{site.baseurl}}/assets/videos/{{theme.video}}.webvtt" srclang="en" label="English" default> -->
-
-            <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser
-            that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-
          </video>
 
         </div>
@@ -51,10 +41,10 @@
       </figure>
       {% if theme.extras %}
       <aside class="extras">
-          <h3>Dive a bit deeper</h3>
+          <h3>{{ site.data.sitecopy.[site.active_lang]extraheading }}</h3>
           <div class="buttons">
           {% for extra in theme.extras %}
-            <a href="" data-modal="#{{extra.video}}_modal" class="modal__trigger">{{extra.title[site.active_lang]}}</a>
+            <a href="" data-modal="#{{extra.video}}_modal" class="modal__button modal__trigger">{{extra.title[site.active_lang]}}</a>
             <!-- Modal -->
           	<div id="{{extra.video}}_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
           		<div class="modal__dialog">

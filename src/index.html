@@ -17,17 +17,17 @@ title: Overview
     <li class="layer" data-depth="0.40">
       <header class="home_header">
         <hgroup>
-          <h1>Place of Change</h1>
-          <h2>Understanding Malaria</h2>
-          <p>Learn where we stand in Vietnam in the fight against infectious disease. And meet the people effeced by the disease.</p>
+          <h1>{{ site.data.sitecopy.[site.active_lang]sitename }}</h1>
+          <h2>{{ site.data.sitecopy.[site.active_lang]sitetopic }}</h2>
+          <p>{{ site.data.sitecopy.[site.active_lang]homepage }}</p>
         </hgroup>
       </header>
     </li>
 
     <li class="layer" data-depth="0.20">
       <header class="home_subheader">
-        <h3>Explore the chapters</h3>
-        <p>Learn about malaria and where we stand in Vietnam in the fight against infectious disease</p>
+        <h3>{{ site.data.sitecopy.[site.active_lang]home_chapter_title }}</h3>
+        <p>{{ site.data.sitecopy.[site.active_lang]home_chapter_text }}</p>
       </header>
     </li>
 
@@ -48,7 +48,7 @@ title: Overview
 
                     <div class="layer-4">
                       <div class="skewed">
-                        <p>{{chapter.[site.active_lang]intro}}</p>
+                        <p>{{chapter.[site.active_lang]intro | truncatewords: 15 }}</p>
                       </div>
                     </div>
                     <div class="ribbon-1">
@@ -78,24 +78,57 @@ title: Overview
   </header>
 
   <div class="comm_grid cd-section">
-      <div href="#0" class="diamond" id="story1">
-         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-woman-2x.jpg" alt>
-          <span>Women</span>
-      </div>
-    	<a href="#" class="diamond" id="story2">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-man-2x.jpg" alt>
-          <span>Men</span>
+    <div class="diamond" id="story1">
+      <a href="#0" class="modal__trigger" data-modal="#comm_modal">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-woman-2x.jpg" alt>
+        <span>Women</span>
       </a>
-    	  <a href="#" class="diamond" id="story3">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
-          <span>Children</span>
+    </div>
+    <div class="diamond" id="story2">
+      <a href="#" class="modal__trigger" data-modal="#comm_modal">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-man-2x.jpg" alt>
+        <span>Men</span>
       </a>
-      <a href="#" class="diamond" id="story4">
+    </div>
+    <div class="diamond" id="story3">
+      <a href="#" class="modal__trigger" data-modal="#comm_modal">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
         <span>Children</span>
       </a>
-
+    </div>
+    <div class="diamond" id="story4">
+      <a href="#" class="modal__trigger" data-modal="#comm_modal">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
+        <span>Children</span>
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- <a href="" data-modal="#comm_modal" class="modal__trigger">{{extra.title[site.active_lang]}}</a> -->
+<!-- Modal -->
+<div id="comm_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h2>Community Video</h2>
+      <div id="video_container" class="full--video extra-pop">
+        <video id="video_1" class="video-js vjs-polyzor-skin"
+          controls preload="auto" width="640" height="360"
+          poster="//unsplash.it/640/360"
+          data-setup='{
+          "aspectRatio":"640:360"
+          }'>
+          <source src="{{site.baseurl}}/assets/videos/{{extra.video}}.mp4" type="video/mp4">
+          <source src="{{site.baseurl}}/assets/videos/{{extra.video}}.webm" type="video/webm">
+        </video>
+      </div>
+      <!-- modal close button -->
+      <a href="" class="modal__close demo-close">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+      </a>
+
+    </div>
+  </div>
+</div>
 
 </section> <!-- .cd-section -->

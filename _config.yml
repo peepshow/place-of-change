@@ -5,7 +5,7 @@ description: Educational documentary and learning module focusing on on infectio
 url: https://peepshow.github.io
 baseurl: ""
 
-active_lang: en
+active_lang: vi
 
 # Used so Jekyll outputs the site correctly so Gulp can do what it wants
 source: src

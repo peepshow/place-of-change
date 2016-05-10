@@ -1,13 +1,26 @@
 .chapter_wrap {
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-image: url(../images/img_mountains02.jpg);
+
   display: block;
   overflow: hidden;
+
+  .bgimage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  &.chapter1 .bgimage { background-image: url(../images/home_bg.jpg); }
+  &.chapter2 .bgimage { background-image: url(../images/home_bg.jpg); }
+  &.chapter3 .bgimage { background-image: url(../images/prevention_bg.jpg); }
+  &.chapter4 .bgimage { background-image: url(../images/treatment_bg.jpg); }
+  &.chapter5 .bgimage { background-image: url(../images/home_bg.jpg); }
+
 }
-
-
 .header--chapter {
   @include span-columns(12);
   //background-color: rgba(250,50,50,0.2);
@@ -146,7 +159,7 @@ $ease: transition all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: $modal-z+100;
     cursor: pointer;
   }
-  &__trigger {
+  &__button {
     // modal trigger button
     position: relative;
     display: inline-block;

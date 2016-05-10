@@ -1,0 +1,23 @@
+#
+# Website copy document for translation.
+# This is the copy that is used throughout the website.
+#
+# Please add more if needed, this is just a sample of what is currently in use.
+
+en:
+  chapter: "Chapter"
+  sitename: "Place of Change"
+  sitetopic: "Understanding Malaria"
+  homepage: "Learn where we stand in the fight to control malaria in Vietnam. Meet the communities affected by the disease and the healthworkers who help them."
+  home_chapter_title: "Explore the chapters"
+  home_chapter_text: ""
+  extraheading: "Dive a bit deeper"
+
+vi:
+  chapter: "Chương"
+  sitename: "Nơi Thay Đổi"
+  sitetopic: "Hiểu Về Sốt Rét"
+  homepage: "Hãy tìm hiểu xem vị trí chúng ta đang đứng trong cuộc chiến chống lại bệnh sốt rét ở Việt Nam. Gặp gỡ những người cộng đồng từng bị ảnh hưởng bởi căn bệnh, và các nhân viên y tế giúp đỡ họ."
+  home_chapter_title: "Explore the chapters"
+  home_chapter_text: ""
+  extraheading: "TIẾN VÀO SÂU HƠN"

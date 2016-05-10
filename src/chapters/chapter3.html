@@ -4,15 +4,22 @@ type: chapter
 chapter_number: "3"
 image: chapter_3_feature.jpg
 
-
 en:
   title: Prevention
-  intro: "An introduction to malaria, what is it and how it impacts us."
+  intro: "Learn more about how malaria is controlled in Vietnam. The methods sound simple so why is it such a complicated disease to control?"
 vi:
-  title: Viet
-  intro: viet
+  title: "Phòng Chống"
+  intro: "Tìm hiểu thêm vể cách quản lý sốt rét ở Việt Nam. Các phương pháp nghe thì đơn giản, nhưng tại sao rất khó để quản lý căn bệnh phức tạp này?"
 ---
-<div class="chapter_wrap">
+<header class="site-header" id="head">
+  <div class="wrapper">
+    <a class="site-title" href="{{ site.baseurl }}/">{{ site.data.sitecopy.[site.active_lang]sitename }}</a>
+  </div>
+</header>
+
+
+<div class="chapter_wrap chapter3">
+  <div class="bgimage"></div>
 <aside>
   {% include chapter_nav.html %}
   {% include theme_nav.html chapter_number=page.chapter_number %}
