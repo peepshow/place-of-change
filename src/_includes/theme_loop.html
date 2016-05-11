@@ -9,7 +9,7 @@
       </header>
       <figure id="video_player" class="main_video slideInUp slideInUp2">
         <div id="video_container" class="full--video">
-          <!-- <video
+          <video
             id="{{theme.id}}"
             class="video-js  vjs-polyzor-skin"
             controls
@@ -22,9 +22,9 @@
                 "src": "https://www.youtube.com/watch?v={{theme.youtube}}"}],
                 "youtube": { "iv_load_policy": 1 }
               }'>
-          </video> -->
+          </video>
 
-          <video id="video_1" class="video-js  vjs-polyzor-skin"
+          <!-- <video id="video_1" class="video-js  vjs-polyzor-skin"
             controls preload="auto" width="640" height="360"
             poster="//unsplash.it/640/360"
             data-setup='{  "fluid":"true",
@@ -32,17 +32,19 @@
             }'>
             <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.mp4" type="video/mp4">
             <source src="{{site.baseurl}}/assets/videos/{{theme.video}}.webm" type="video/webm">
-         </video>
+         </video> -->
 
         </div>
         <!-- <figcaption class="video--caption">
           Possible video title
         </figcaption> -->
       </figure>
+
       {% if theme.extras %}
-      <aside class="extras">
+        <aside class="extras">
           <h3>{{ site.data.sitecopy.[site.active_lang]extraheading }}</h3>
           <div class="buttons">
+
           {% for extra in theme.extras %}
             <a href="" data-modal="#{{extra.video}}_modal" class="modal__button modal__trigger">{{extra.title[site.active_lang]}}</a>
             <!-- Modal -->
@@ -69,13 +71,13 @@
           			</div>
           		</div>
           	</div>
-
           {% endfor %}
+
           </div>
-
-      </aside>
+        </aside>
       {% endif %}
-    </section>
 
+    </section>
     {% endif %}
+
 {% endfor %}

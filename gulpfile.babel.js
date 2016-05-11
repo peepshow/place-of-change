@@ -17,6 +17,10 @@ import autoprefixer from 'autoprefixer';
 // Yargs for command line arguments
 import {argv} from 'yargs';
 
+import electron from 'gulp-electron';
+
+var packageJson = require('./package.json');
+
 // 'gulp clean:assets' -- deletes all assets except for images
 // 'gulp clean:images' -- deletes your images
 // 'gulp clean:dist' -- erases the dist folder
@@ -261,6 +265,37 @@ gulp.task('html', () =>
 //       branch: "master"
 //     }));
 // });
+
+gulp.task('electron', function() {
+
+    gulp.src("dist")
+    .pipe(electron({
+        src: './dist',
+        packageJson: packageJson,
+        release: './release',
+        cache: './cache',
+        version: 'v0.37.4',
+        packaging: true,
+        token: '',
+        platforms: ['darwin-x64', 'win32-ia32'],
+        platformResources: {
+            darwin: {
+                CFBundleDisplayName: packageJson.name,
+                CFBundleIdentifier: packageJson.name,
+                CFBundleName: packageJson.name,
+                CFBundleVersion: packageJson.version,
+                icon: 'gulp-electron.icns'
+            },
+            win: {
+                "version-string": packageJson.version,
+                "file-version": packageJson.version,
+                "product-version": packageJson.version,
+                "icon": 'gulp-electron.ico'
+            }
+        }
+    }))
+    .pipe(gulp.dest(""));
+});
 
 // 'gulp deploy' -- pushes your dist folder to Github
 gulp.task('deploy', () => {

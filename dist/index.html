@@ -69,14 +69,12 @@
       </header>
     </li>
 
-    <li class="layer" data-depth="0.20">
-      <header class="home_subheader">
-        <h3>Explore the chapters</h3>
-        <p></p>
-      </header>
-    </li>
 
     <li class="layer" data-depth="0.10">
+      <header class="home_subheader">
+        <h3>Khám phá các chương</h3>
+        <p>Tìm hiểu thêm về cuộc chiến chống lại sốt rét ở Việt Nam.</p>
+      </header>
       <div class="carousel_wrap">
         <div id="flat">
           <ul>
@@ -259,55 +257,52 @@
 
 
 <section class="home_community">
+
   <header class="home_subheader">
-    <h3>Community Narritives</h3>
-    <p>Learn about malaria and where we stand in Vietnam in the fight against infectious disease</p>
+    <h3>Câu chuyện về cộng đồng</h3>
+    <p>Nghe câu chuyện của bốn người cộng đồng bị ảnh hưởng bởi sốt rét.</p>
   </header>
 
   <div class="comm_grid cd-section">
-    <div class="diamond" id="story1">
-      <a href="#0" class="modal__trigger" data-modal="#comm_modal">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-woman-2x.jpg" alt>
-        <span>Women</span>
-      </a>
-    </div>
-    <div class="diamond" id="story2">
-      <a href="#" class="modal__trigger" data-modal="#comm_modal">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-man-2x.jpg" alt>
-        <span>Men</span>
-      </a>
-    </div>
-    <div class="diamond" id="story3">
-      <a href="#" class="modal__trigger" data-modal="#comm_modal">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
-        <span>Children</span>
-      </a>
-    </div>
-    <div class="diamond" id="story4">
-      <a href="#" class="modal__trigger" data-modal="#comm_modal">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pure-child-2x.jpg" alt>
-        <span>Children</span>
-      </a>
-    </div>
-  </div>
-</section>
 
-<!-- <a href="" data-modal="#comm_modal" class="modal__trigger"></a> -->
+    
+      
+<div class="diamond" id="story_1">
+  <a href="" data-modal="#story_1_modal" class="modal__trigger">
+    <img src="/assets/images/story_1.jpg" alt="Câu chuyện của <br>Tâm">
+    <span>Câu chuyện của <br>Tâm</span>
+  </a>
+</div>
+
 <!-- Modal -->
-<div id="comm_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
+<div id="story_1_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
   <div class="modal__dialog">
     <div class="modal__content">
-      <h2>Community Video</h2>
+      <h2>Câu chuyện của Tâm</h2>
       <div id="video_container" class="full--video extra-pop">
-        <video id="video_1" class="video-js vjs-polyzor-skin"
+        <video id="story_1_video" class="video-js vjs-polyzor-skin"
           controls preload="auto" width="640" height="360"
-          poster="//unsplash.it/640/360"
+          poster="/assets/images/story_1_preview.jpg"
           data-setup='{
           "aspectRatio":"640:360"
           }'>
-          <source src="/assets/videos/.mp4" type="video/mp4">
-          <source src="/assets/videos/.webm" type="video/webm">
+          <source src="/assets/videos/POC1_CommunityFilm_Tam.mp4" type="video/mp4">
+          <source src="/assets/videos/POC1_CommunityFilm_Tam.webm" type="video/webm">
         </video>
+        <!-- <video
+          id="story_1"
+          class="video-js  vjs-polyzor-skin"
+          controls
+          width="640" height="264"
+          data-setup='{ "fluid":"true",
+            "aspectRatio":"640:360",
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/watch?v=PEzjHRUJ-H0"}],
+              "youtube": { "iv_load_policy": 1 }
+            }'>
+        </video> -->
       </div>
       <!-- modal close button -->
       <a href="" class="modal__close demo-close">
@@ -318,7 +313,155 @@
   </div>
 </div>
 
-</section> <!-- .cd-section -->
+    
+      
+<div class="diamond" id="story_2">
+  <a href="" data-modal="#story_2_modal" class="modal__trigger">
+    <img src="/assets/images/story_2.jpg" alt="Câu chuyện của <br>Liem">
+    <span>Câu chuyện của <br>Liem</span>
+  </a>
+</div>
+
+<!-- Modal -->
+<div id="story_2_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h2>Câu chuyện của Liem</h2>
+      <div id="video_container" class="full--video extra-pop">
+        <video id="story_2_video" class="video-js vjs-polyzor-skin"
+          controls preload="auto" width="640" height="360"
+          poster="/assets/images/story_2_preview.jpg"
+          data-setup='{
+          "aspectRatio":"640:360"
+          }'>
+          <source src="/assets/videos/POC1_CommunityFilm_Liem.mp4" type="video/mp4">
+          <source src="/assets/videos/POC1_CommunityFilm_Liem.webm" type="video/webm">
+        </video>
+        <!-- <video
+          id="story_2"
+          class="video-js  vjs-polyzor-skin"
+          controls
+          width="640" height="264"
+          data-setup='{ "fluid":"true",
+            "aspectRatio":"640:360",
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/watch?v=haH6z3_3MaY"}],
+              "youtube": { "iv_load_policy": 1 }
+            }'>
+        </video> -->
+      </div>
+      <!-- modal close button -->
+      <a href="" class="modal__close demo-close">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+    
+      
+<div class="diamond" id="story_3">
+  <a href="" data-modal="#story_3_modal" class="modal__trigger">
+    <img src="/assets/images/story_3.jpg" alt="Câu chuyện của <br>Hung">
+    <span>Câu chuyện của <br>Hung</span>
+  </a>
+</div>
+
+<!-- Modal -->
+<div id="story_3_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h2>Câu chuyện của Hung</h2>
+      <div id="video_container" class="full--video extra-pop">
+        <video id="story_3_video" class="video-js vjs-polyzor-skin"
+          controls preload="auto" width="640" height="360"
+          poster="/assets/images/story_3_preview.jpg"
+          data-setup='{
+          "aspectRatio":"640:360"
+          }'>
+          <source src="/assets/videos/POC1_CommunityFilm_Hung.mp4" type="video/mp4">
+          <source src="/assets/videos/POC1_CommunityFilm_Hung.webm" type="video/webm">
+        </video>
+        <!-- <video
+          id="story_3"
+          class="video-js  vjs-polyzor-skin"
+          controls
+          width="640" height="264"
+          data-setup='{ "fluid":"true",
+            "aspectRatio":"640:360",
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/watch?v=_xIMonAIGvE"}],
+              "youtube": { "iv_load_policy": 1 }
+            }'>
+        </video> -->
+      </div>
+      <!-- modal close button -->
+      <a href="" class="modal__close demo-close">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+    
+      
+<div class="diamond" id="story_4">
+  <a href="" data-modal="#story_4_modal" class="modal__trigger">
+    <img src="/assets/images/story_4.jpg" alt="Câu chuyện của <br>Lem">
+    <span>Câu chuyện của <br>Lem</span>
+  </a>
+</div>
+
+<!-- Modal -->
+<div id="story_4_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h2>Câu chuyện của Lem</h2>
+      <div id="video_container" class="full--video extra-pop">
+        <video id="story_4_video" class="video-js vjs-polyzor-skin"
+          controls preload="auto" width="640" height="360"
+          poster="/assets/images/story_4_preview.jpg"
+          data-setup='{
+          "aspectRatio":"640:360"
+          }'>
+          <source src="/assets/videos/POC1_CommunityFilm_Lem.mp4" type="video/mp4">
+          <source src="/assets/videos/POC1_CommunityFilm_Lem.webm" type="video/webm">
+        </video>
+        <!-- <video
+          id="story_4"
+          class="video-js  vjs-polyzor-skin"
+          controls
+          width="640" height="264"
+          data-setup='{ "fluid":"true",
+            "aspectRatio":"640:360",
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/watch?v=gEHJrDZfJ4M"}],
+              "youtube": { "iv_load_policy": 1 }
+            }'>
+        </video> -->
+      </div>
+      <!-- modal close button -->
+      <a href="" class="modal__close demo-close">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+    
+
+  </div>
+
+</section>
 
     </div>
 

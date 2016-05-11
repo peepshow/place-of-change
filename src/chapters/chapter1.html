@@ -27,11 +27,69 @@ vi:
     {% include theme_nav.html chapter_number=page.chapter_number %}
   </aside>
 
-  <header id="intro" class="header--chapter">
+  <header id="intro" class="header--chapter header--chapter_1">
     {% include chapter_head.html %}
   </header>
 
   <main class="main" role="main">
+    <section class="animation_films">
+      <div class="film1">
+        <h2>{{ site.data.sitecopy.animation1.title[site.active_lang] }}</h2>
+        <div id="video_container" class="full--video">
+          <video id="{{ site.data.themes.animation1 }}_video" class="video-js vjs-polyzor-skin"
+            controls preload="auto" width="640" height="360"
+            poster="{{ site.baseurl }}/assets/images/{{ site.data.themes.animation1.image }}"
+            data-setup='{
+            "aspectRatio":"640:360"
+            }'>
+            <source src="{{site.baseurl}}/assets/videos/{{site.data.themes.animation1.video}}.mp4" type="video/mp4">
+            <source src="{{site.baseurl}}/assets/videos/{{site.data.themes.animation1.video}}.webm" type="video/webm">
+          </video>
+          <!-- <video
+            id="{{ site.data.themes.animation1 }}"
+            class="video-js  vjs-polyzor-skin"
+            controls
+            width="640" height="264"
+            data-setup='{ "fluid":"true",
+              "aspectRatio":"640:360",
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "https://www.youtube.com/watch?v={{site.data.sitecopy.animation2.youtube}}"}],
+                "youtube": { "iv_load_policy": 1 }
+              }'>
+          </video> -->
+        </div>
+      </div>
+      <div class="film2">
+        <h2>{{ site.data.sitecopy.animation2.title[site.active_lang] }}</h2>
+        <div id="video_container" class="full--video">
+          <video id="{{ site.data.themes.animation2 }}_video" class="video-js vjs-polyzor-skin"
+            controls preload="auto" width="640" height="360"
+            poster="{{ site.baseurl }}/assets/images/{{ site.data.themes.animation2.image }}"
+            data-setup='{
+            "aspectRatio":"640:360"
+            }'>
+            <source src="{{site.baseurl}}/assets/videos/{{site.data.themes.animation2.video}}.mp4" type="video/mp4">
+            <source src="{{site.baseurl}}/assets/videos/{{ssite.data.themes.animation2.video}}.webm" type="video/webm">
+          </video>
+          <!-- <video
+            id="{{ site.data.themes.animation1 }}"
+            class="video-js  vjs-polyzor-skin"
+            controls
+            width="640" height="264"
+            data-setup='{ "fluid":"true",
+              "aspectRatio":"640:360",
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "https://www.youtube.com/watch?v={{site.data.sitecopy.animation2.youtube}}"}],
+                "youtube": { "iv_load_policy": 1 }
+              }'>
+          </video> -->
+        </div>
+      </div>
+    </section>
     {% include theme_loop.html chapter_number=page.chapter_number %}
   </main>
 </div>
