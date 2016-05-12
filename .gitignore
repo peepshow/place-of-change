@@ -47,7 +47,7 @@ tags
 *.jar
 *.rar
 *.tar
-*.zip
+
 
 # Packages
 node_modules/

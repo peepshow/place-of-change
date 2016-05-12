@@ -12,6 +12,7 @@
     <div class="modal__content">
       <h2>{{ story.title[site.active_lang] | strip_html  }}</h2>
       <div id="video_container" class="full--video extra-pop">
+
         <video id="{{ story.id }}_video" class="video-js vjs-polyzor-skin"
           controls preload="auto" width="640" height="360"
           poster="{{ site.baseurl }}/assets/images/{{ story.previewimg }}"
