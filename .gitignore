@@ -54,6 +54,7 @@ node_modules/
 .tmp
 test/
 
+
 # Sublime
 *.sublime-project
 *.sublime-workspace
@@ -69,3 +70,4 @@ rsync-credentials.json
 
 src/assets/videos/*
 dist/assets/videos/*
+.publish/assets/videos
