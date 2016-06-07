@@ -8,7 +8,7 @@
   width: 100%;
 }
 .site-title {
-  font-size: 2em;
+  font-size: 1em;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: white;
@@ -33,7 +33,7 @@
 }
 
 .background {
-  background-image: url('../images/home_bg.jpg');
+  background-image: url('../images/bg_home.jpg');
   background-size: cover;
   background-position: center top;
   position: absolute;
@@ -50,7 +50,7 @@
 .home_header {
   text-align: center;
   color: #fff;
-  padding: 5em 0 0;
+  padding: 2.5em 0 0;
   text-shadow: 0 0 10px rgba(50,50,50,0.4);
   top: 0;
   min-height: 30vh;
@@ -62,6 +62,10 @@
     margin: 0.6em 0 0.8em;
     text-transform: uppercase;
     letter-spacing: 0.3em;
+  }
+  p {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -76,6 +80,8 @@
   width: 100vw;
   p {
     margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -87,11 +93,12 @@
   }
 }
 
+
 .carousel_wrap {
   width: 110vw;
   min-height: 60vh;
   margin-left: -5vw;
-  padding: 2vh;
+  //padding: 2vh;
 }
 
 .chapter-card {
@@ -133,7 +140,8 @@ div[class*="layer-"] {
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.3em;
-    font-size: 1.2em;
+    font-size: 0.6em;
+    text-shadow: 0 0 15px rgba(55,55,55,0.8);
   }
 }
 .layer-3 {
@@ -149,7 +157,7 @@ div[class*="layer-"] {
     background: skyblue;
     transform: skewY(-8deg);
     min-height: 400px;
-    padding: 3em 40px 1em;
+    padding: 1.2em 40px 1em;
     box-shadow: 0 -20px 70px rgba(50,50,50,0.5);
     * {
       transform: skewY(8deg);
@@ -183,6 +191,7 @@ div[class*="layer-"] {
   top: 58%;
   left: 50%;
   transform: translate(-50%, 0);
+  display: none;
 
   &:after {
     @include triangle(40px 12px, transparent $yellow, up);
@@ -194,7 +203,7 @@ div[class*="layer-"] {
 // COMMUNITY SECTION
 .home_community {
   background: #333;
-  background-image: url('../images/community_bg.jpg');
+  background-image: url('../images/bg_community.jpg');
   background-size: cover;
   min-height: 100vh;
   position: relative;
@@ -371,6 +380,7 @@ $ease: transition all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     letter-spacing: $wide-letter-space;
     text-transform: uppercase;
     margin: 1em 0.4em 1em 0;
+    font-size: 1rem;
     // &--active {
     //   z-index: 10;
     // }

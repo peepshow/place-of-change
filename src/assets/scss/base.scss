@@ -212,6 +212,7 @@ body {
 body {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
+  font-size: $base-fluid-font;
 }
 
 h2 {
@@ -224,8 +225,21 @@ h2 {
 
 p {
   max-width: 500px;
-  margin: 1.4em auto 0;
+  margin: 1.4em 0 0;
   line-height: $base-line-height;
   font-weight: 300;
   letter-spacing: 0.04em;
+}
+
+h1 {
+  font-size: 4vw;
+}
+h2 {
+  font-size: 2.0vw;
+}
+h3 {
+  font-size: 1.4vw;
+}
+p {
+  font-size: 2vmin;
 }

@@ -18,18 +18,18 @@ vi:
 </header>
 
 
-<div class="chapter_wrap chapter5">
-  <div class="bgimage"></div>
-<aside>
-  {% include chapter_nav.html %}
-  {% include theme_nav.html chapter_number=page.chapter_number %}
-</aside>
+<div id="chapter" class="chapter_wrap chapter5">
+  <div id="bgimage" class="bgimage"></div>
+  <aside>
+    {% include chapter_nav.html %}
+    {% include theme_nav.html chapter_number=page.chapter_number %}
+  </aside>
 
-<header id="intro" class="header--chapter">
-  {% include chapter_head.html %}
-</header>
+  <header id="intro" class="header--chapter">
+    {% include chapter_head.html %}
+  </header>
 
-<main class="main" role="main">
-  {% include theme_loop.html chapter_number=page.chapter_number %}
-</main>
+  <main class="main" role="main">
+    {% include theme_loop.html chapter_number=page.chapter_number %}
+  </main>
 </div>

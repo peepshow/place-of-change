@@ -66,3 +66,6 @@ bower_components
 # hide the AWS and Rsync credentials file
 aws-credentials.json
 rsync-credentials.json
+
+src/assets/videos/*
+dist/assets/videos/*

@@ -363,6 +363,10 @@ $big-play-height: 1em;
     background: rgba($slider-bg-color, 0.75);
 }
 
+.vjs-poster {
+  background-size: cover;
+}
+
 //======================
 // MOBILE SCREENS
 //======================

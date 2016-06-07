@@ -24,5 +24,6 @@ The main SCSS file for everything, yep
 
 @import "mixins/mixins";
 @import "plugins/video";
+@import "plugins/_flipster-custom.scss";
 
 @import "chapters";

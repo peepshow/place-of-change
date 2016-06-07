@@ -6,5 +6,5 @@
     <li><a href="{{ site.baseurl }}/chapters/chapter4.html" class="{% if page.url == '/chapters/chapter4.html' %}active{% endif %}">Chapter 4</a></li>
     <li><a href="{{ site.baseurl }}/chapters/chapter5.html" class="{% if page.url == '/chapters/chapter5.html' %}active{% endif %}">Chapter 5</a></li>
   </ul>
-  <h3><span>Chapter {{page.chapter_number}}:</span> {{page.title}}</h3>
+  <h3><span>Chapter {{page.chapter_number}}:</span> {{page.[site.active_lang]title}}</h3>
 </nav>

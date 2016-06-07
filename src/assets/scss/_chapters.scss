@@ -1,24 +1,24 @@
 .chapter_wrap {
 
   display: block;
-  overflow: hidden;
+  //overflow: hidden;
 
   .bgimage {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100%;
+    height: 200vh;
     top: 0;
     left: 0;
     z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #fff;
   }
-  &.chapter1 .bgimage { background-image: url(../images/home_bg.jpg); }
-  &.chapter2 .bgimage { background-image: url(../images/home_bg.jpg); }
-  &.chapter3 .bgimage { background-image: url(../images/prevention_bg.jpg); }
-  &.chapter4 .bgimage { background-image: url(../images/treatment_bg.jpg); }
-  &.chapter5 .bgimage { background-image: url(../images/home_bg.jpg); }
+  &.chapter1 .bgimage { background-image: url(../images/bg_whatitis.jpg); }
+  &.chapter2 .bgimage { background-image: url(../images/bg_transmission.jpg); }
+  &.chapter3 .bgimage { background-image: url(../images/bg_prevention.jpg); }
+  &.chapter4 .bgimage { background-image: url(../images/bg_treatment.jpg); }
+  &.chapter5 .bgimage { background-image: url(../images/bg_communication.jpg); }
 
 }
 .header--chapter {
@@ -33,8 +33,13 @@
 
   hgroup {
     h1 {
-      font-size: 3rem;
+      //font-size: 3rem;
       font-weight: 400;
+      span {
+        font-weight: 600;
+        font-size: 0.6em;
+        display: block;
+      }
     }
 
     p {
@@ -71,21 +76,32 @@
       color: #FFF;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-size: 3.2em;
+      font-size: 2.6em;
       margin-bottom: 0.6em;
     }
   }
   // &_21 .bg_overlay { background-image: url(../images/img_mountains02.jpg); }
   // &_22 .bg_overlay { background-image: url(../images/img_mountains03.jpg); }
   // &_23 .bg_overlay { background-image: url(../images/img_mountains04.jpg); }
-
 }
 
 
 .main_video {
   //@include span-columns(10);
   margin: 0 0 4vh;
+  position: relative;
+
+  .video--caption {
+    position: absolute;
+    top: 6vh;
+    left: 6vh;
+    p {
+      width: 28vw;
+    }
+  }
+
 }
+
 .extras {
   @include span-columns(12);
 }
