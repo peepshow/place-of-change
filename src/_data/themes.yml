@@ -19,6 +19,15 @@
         vi:
       video: 0113_POC_PRO2_2_What_Is_It_2.1.B1
       youtube: n2mqJYVllXc
+  community:
+    - title:
+        en: "New community clip"
+        vi: ""
+      onliner:
+        en: ""
+        vi: ""
+      video: COMMUNITY_CLIP_1
+      youtube: n2mqJYVllXc
 
 - id: 2_2
   chapter_number: "1"

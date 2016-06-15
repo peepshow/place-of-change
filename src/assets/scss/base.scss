@@ -212,7 +212,7 @@ body {
 body {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
-  font-size: $base-fluid-font;
+  font-size: $base-font-size;
 }
 
 h2 {
@@ -241,5 +241,5 @@ h3 {
   font-size: 1.4vw;
 }
 p {
-  font-size: 2vmin;
+  font-size: 1.1em;
 }

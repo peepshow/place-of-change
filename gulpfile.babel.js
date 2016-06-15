@@ -224,7 +224,7 @@ gulp.task('images', () =>
     .pipe(gulp.dest('.tmp/assets/images'))
     .pipe($.size({title: 'images'}))
 );
-// 'gulp fonts' -- copies your fonts to the temporary assets folder
+// 'gulp videos' -- copies your videos to the temporary assets folder
 gulp.task('videos', () =>
   gulp.src('src/assets/videos/**/*')
     .pipe(gulp.dest('.tmp/assets/videos'))

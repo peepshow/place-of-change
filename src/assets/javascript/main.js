@@ -41,7 +41,18 @@
       })
       .setTween(swapClip)
       .addTo(ctrl);
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.5,
+        offset: 0,
+        duration: $(this).height() * 3
+      })
+      .setClassToggle(this, "active_video")
+      .addTo(ctrl);
+
     });
+
 
     // Move the background image
     var bgheight = $('#bgimage').height();
@@ -62,232 +73,58 @@
 
   if($('#chapter').length > 0 ){
     scrollmagic();
+    videoControl();
+  }
+
+
+  function videoControl() {
+
+    // When a video is played pause all other playback
+    $(".video-js").each(function (videoIndex) {
+
+      var videoId = $(this).attr("id");
+
+      videojs(videoId).ready(function() {
+        this.on("play", function(e) {
+          //pause other video
+          $(".video-js").each(function(index) {
+            if (videoIndex !== index) {
+              this.player.pause();
+            }
+          });
+        });
+        // this.on("pause", function () {
+        //   this.on("play", function () {
+        //     this.load();
+        //     this.play();
+        //   });
+        // })
+      });
+
+
+    });
+
+
+
+  }
+
+  // Check the scroll position and pause video playback if a clip is out of frame.
+  function checkActive() {
+    $(".video-js").each(function (videoIndex) {
+      if ($(this).parents('.active_video').length == 0) {
+        if (!$(this).paused) {
+          this.player.pause();
+        }
+      }
+    });
   }
 
 
 
-  $(document).ready(function() {
-    var player = null;
-    $("#video-toggler").click(function() {
-      console.log("clicked");
-      var url = $(this).attr('data-url');
 
-      $.featherlight('#video-lightbox', {
-        afterContent: function(event) {
-          console.log("open");
-          $('.featherlight-inner').append(createPlayerDOM(url));
-          console.log("DOM added");
-        },
-        afterOpen: function(event) {
-          player = videojs('#video-player', {
-            "controls": true,
-            "autoplay": false,
-            "preload": "meta_data"
-          }, function() {
-            console.log('Good to go!');
-            // if you don't trust autoplay for some reason
-          });
-        },
-        beforeClose: function(event) {
-          player.pause();
-          player.dispose();
-        }
-      });
-    });
-
-    function createPlayerDOM(url) {
-      var playerContainer = null;
-      playerContainer = document.createElement('div');
-      var playerDOM = null;
-      playerDOM = document.createElement('video');
-      playerDOM.id = 'video-player';
-      playerDOM.className += 'video-js vjs-polyzor-skin';
-      playerDOM.setAttribute('preload', 'meta_data');
-      playerDOM.controls = true;
-      // Create the video sources
-      var video_mp4 = document.createElement('source');
-      video_mp4.setAttribute('src', url + '.mp4');
-      video_mp4.setAttribute('type', 'video/mp4');
-      var video_webm = document.createElement('source');
-      video_webm.setAttribute('src', url + '.webm');
-      video_webm.setAttribute('type', 'video/webm');
-      playerDOM.appendChild(video_mp4);
-      playerDOM.appendChild(video_webm);
-      playerContainer.appendChild(playerDOM);
-      return playerContainer;
-    }
+  $(window).scroll(function() {
+    checkActive();
   });
-
-
-  jQuery(document).ready(function($) {
-    //trigger the animation - open modal window
-    $('[data-type="modal-trigger"]').on('click', function() {
-      var actionBtn = $(this),
-        scaleValue = retrieveScale(actionBtn.next('.cd-modal-bg'));
-
-      actionBtn.addClass('to-circle');
-      actionBtn.next('.cd-modal-bg').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
-        animateLayer(actionBtn.next('.cd-modal-bg'), scaleValue, true);
-      });
-
-      //if browser doesn't support transitions...
-      if (actionBtn.parents('.no-csstransitions').length > 0) animateLayer(actionBtn.next('.cd-modal-bg'), scaleValue, true);
-    });
-
-    //trigger the animation - close modal window
-    $('.cd-section .cd-modal-close').on('click', function() {
-      closeModal();
-    });
-    $(document).keyup(function(event) {
-      if (event.which == '27') closeModal();
-    });
-
-    $(window).on('resize', function() {
-      //on window resize - update cover layer dimention and position
-      if ($('.cd-section.modal-is-visible').length > 0) window.requestAnimationFrame(updateLayer);
-    });
-
-    function retrieveScale(btn) {
-      var btnRadius = btn.width() / 2,
-        left = btn.offset().left + btnRadius,
-        top = btn.offset().top + btnRadius - $(window).scrollTop(),
-        scale = scaleValue(top, left, btnRadius, $(window).height(), $(window).width());
-
-      btn.css('position', 'fixed').velocity({
-        top: top - btnRadius,
-        left: left - btnRadius,
-        translateX: 0,
-      }, 0);
-
-      return scale;
-    }
-
-    function scaleValue(topValue, leftValue, radiusValue, windowW, windowH) {
-      var maxDistHor = (leftValue > windowW / 2) ? leftValue : (windowW - leftValue),
-        maxDistVert = (topValue > windowH / 2) ? topValue : (windowH - topValue);
-      return Math.ceil(Math.sqrt(Math.pow(maxDistHor, 2) + Math.pow(maxDistVert, 2)) / radiusValue);
-    }
-
-    function animateLayer(layer, scaleVal, bool) {
-      layer.velocity({
-        scale: scaleVal
-      }, 400, function() {
-        $('body').toggleClass('overflow-hidden', bool);
-        (bool) ? layer.parents('.cd-section').addClass('modal-is-visible').end().off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend'): layer.removeClass('is-visible').removeAttr('style').siblings('[data-type="modal-trigger"]').removeClass('to-circle');
-      });
-    }
-
-    function updateLayer() {
-      var layer = $('.cd-section.modal-is-visible').find('.cd-modal-bg'),
-        layerRadius = layer.width() / 2,
-        layerTop = layer.siblings('.btn').offset().top + layerRadius - $(window).scrollTop(),
-        layerLeft = layer.siblings('.btn').offset().left + layerRadius,
-        scale = scaleValue(layerTop, layerLeft, layerRadius, $(window).height(), $(window).width());
-
-      layer.velocity({
-        top: layerTop - layerRadius,
-        left: layerLeft - layerRadius,
-        scale: scale,
-      }, 0);
-    }
-
-    function closeModal() {
-      var section = $('.cd-section.modal-is-visible');
-      section.removeClass('modal-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
-        animateLayer(section.find('.cd-modal-bg'), 1, false);
-      });
-      //if browser doesn't support transitions...
-      if (section.parents('.no-csstransitions').length > 0) animateLayer(section.find('.cd-modal-bg'), 1, false);
-    }
-  });
-
-
-
-  //   var $poster = $('.poster'),
-  //   //$shine = $('.shine'),
-  //   $layer = $('div[class*="layer-"]'),
-  //   w = $(window).width(), //window width
-  //   h = $(window).height(); //window height
-  //
-  // $(window).on('mousemove', function(e) {
-  //   var offsetX = 0.5 - e.pageX / w, //cursor position X
-  //     offsetY = 0.5 - e.pageY / h, //cursor position Y
-  //     dy = e.pageY - h / 2, //@h/2 = center of poster
-  //     dx = e.pageX - w / 2, //@w/2 = center of poster
-  //     theta = Math.atan2(dy, dx), //angle between cursor and center of poster in RAD
-  //     angle = theta * 180 / Math.PI - 90, //convert rad in degrees
-  //     offsetPoster = $poster.data('offset'),
-  //     transformPoster = 'translateY(' + -offsetX * offsetPoster + 'px)'; //poster transform
-  //
-  //   //get angle between 0-360
-  //   if (angle < 0) {
-  //     angle = angle + 360;
-  //   }
-  //
-  //   //gradient angle and opacity
-  //   //$shine.css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255,' + e.pageY / h + ') 0%,rgba(255,255,255,0) 80%)');
-  //
-  //   //poster transform
-  //   //$poster.css('transform', transformPoster);
-  //
-  //   //parallax foreach layer
-  //   $layer.each(function() {
-  //     var $this = $(this),
-  //       offsetLayer = $this.data('offset') || 0,
-  //       transformLayer = 'translateX(' + offsetX * offsetLayer + 'px) translateY(' + offsetY * offsetLayer + 'px)';
-  //
-  //     $this.css('transform', transformLayer);
-  //   });
-  //
-  // });
-  //
-  // var lFollowX = 0,
-  //     lFollowY = 0,
-  //     x = 0,
-  //     y = 0,
-  //     friction = 1 / 30;
-  //
-  // function moveBackground() {
-  //   x += (lFollowX - x) * friction;
-  //   y += (lFollowY - y) * friction;
-  //
-  //   translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
-  //
-  //   $('.bg').css({
-  //     '-webit-transform': translate,
-  //     '-moz-transform': translate,
-  //     'transform': translate
-  //   });
-  //
-  //   window.requestAnimationFrame(moveBackground);
-  // }
-  //
-  // $(window).on('mousemove click', function(e) {
-  //
-  //   var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
-  //   var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
-  //   lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
-  //   lFollowY = (10 * lMouseY) / 100;
-  //
-  // });
-
-  //moveBackground();
-
-
-  // var $gallery = $('.gallery').flickity({
-  //   cellAlign: 'left',
-  //   contain: true,
-  //   prevNextButtons: true,
-  //   pageDots: false,
-  // });
-  //
-  // $gallery.on( 'staticClick', function( event, pointer, cellElem, cellIndex ) {
-  //   if ( cellIndex !== undefined ) {
-  //     $gallery.flickity( 'select', cellIndex );
-  //   }
-  // });
-
-
 
 
   $(document).ready(function() {
@@ -310,13 +147,6 @@
     });
   }
 
-  /*function scrollTo (classLink) {
-     $('a', classLink).on('click', function(e) {
-       e.preventDefault();
-       var distanceTopToSection = $( '#' +  $(this).data('target')).offset().top;
-       $( 'body, html' ).animate({scrollTop:distanceTopToSection }, 'slow');
-    });
-  }*/
 
   function scrollToTop() {
     var backToTop = $('.backToTop');
@@ -326,10 +156,10 @@
     var children = $("#theme_nav li").children();
     var tab = [];
     for (var i = 0; i < children.length; i++) {
-      console.log(children[i]);
+      //console.log(children[i]);
       var child = children[i];
       var ahref = $(child).attr('href');
-      console.log(ahref);
+      //console.log(ahref);
       tab.push(ahref);
     }
 
@@ -520,6 +350,16 @@ var Modal = (function() {
      * make sure the modal__bg or modal__close was clicked, we don't want to be able to click
      * inside the modal and have it close.
      */
+     function checkActiveModal() {
+       $(".video-js").each(function (videoIndex) {
+         if ($(this).parents('.modal--active').length !== 0) {
+           if (!$(this).paused) {
+             this.player.pause();
+           }
+         }
+       });
+     }
+
 
     if (isOpen && target.classList.contains('modal__bg') || target.classList.contains('modal__close')) {
 
@@ -527,6 +367,7 @@ var Modal = (function() {
       div.style.opacity = '1';
       div.removeAttribute('style');
 
+      checkActiveModal()
       /**
        * iterate through the modals and modal contents and triggers to remove their active classes.
        * remove the inline css from the trigger to move it back into its original position.

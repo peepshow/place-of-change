@@ -139,8 +139,8 @@ div[class*="layer-"] {
     text-transform: uppercase;
     font-weight: 700;
     color: #fff;
-    letter-spacing: 0.3em;
-    font-size: 0.6em;
+    letter-spacing: 0.2em;
+    font-size: 1.2em;
     text-shadow: 0 0 15px rgba(55,55,55,0.8);
   }
 }
@@ -165,6 +165,7 @@ div[class*="layer-"] {
   }
   p {
     margin: 0;
+    font-size: 0.9em;
   }
 }
 [class^="ribbon-"] {
