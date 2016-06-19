@@ -345,7 +345,7 @@ gulp.task('serve', () => {
 // ));
 gulp.task('assets', gulp.series(
   gulp.series('clean:assets'),
-  gulp.parallel('styles', 'scripts:vendor', 'scripts', 'fonts', 'images', 'videos')
+  gulp.parallel('styles', 'scripts:vendor', 'scripts', 'fonts', 'images')
 ));
 
 // 'gulp assets:copy' -- copies the assets into the dist folder, needs to be
