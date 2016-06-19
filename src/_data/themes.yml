@@ -10,24 +10,28 @@
     vi: "Khoa học đằng sau căn bệnh này thật sự rất tuyệt vời. Vòng đời của bệnh sốt rét có chuyên môn hoá rất cao, tiến hoá qua hàng ngàn năm để đảm bảo ký sinh trùng tiếp tục phát triển mạnh trong tương lai"
   video: 0113_POC_PRO2_2_What_Is_It_2.1
   youtube: S4AKiYFrEyg
+  image: thumb_placeholder.jpg
   extras:
     - title:
         en: "Symptoms"
         vi: "Triệu Chứng"
-      onliner:
-        en:
+      oneliner:
+        en: "A very small stage in a vast cosmic ocean, courage of our questions intelligent"
         vi:
       video: 0113_POC_PRO2_2_What_Is_It_2.1.B1
       youtube: n2mqJYVllXc
+      type: "professional"
+      image: thumb_placeholder.jpg
     - title:
         en: "New community clip"
         vi: ""
-      onliner:
-        en: ""
+      oneliner:
+        en: "A very small stage in a vast cosmic ocean, courage of our questions intelligent"
         vi: ""
-      video: COMMUNITY_CLIP_1
+      video: 0113_POC_PRO2_2_What_Is_It_2.2
       youtube: n2mqJYVllXc
-      type: "community"
+      type: "community audio"
+      image: thumb_placeholder.jpg
 
 - id: 2_2
   chapter_number: "1"
@@ -54,7 +58,7 @@
     - title:
         en: "The Global Cycle"
         vi: "Chu Kỳ Toàn Cầu"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_What_Is_It_2.3.B1
@@ -85,7 +89,7 @@
     - title:
         en: "Free Flow migration"
         vi: "Di Dân Tự Do"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_What_Is_It_2.5.B1
@@ -93,7 +97,7 @@
     - title:
         en: "The Mosquito"
         vi: "Con Muỗi"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_What_Is_It_2.5.B2
@@ -101,7 +105,7 @@
     - title:
         en: "Risk in the Forest"
         vi: "Nguy Cơ Trong Rừng"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_2_What_Is_It_2.5.B3
@@ -191,7 +195,7 @@
     - title:
         en: "Life in the Forest"
         vi: "Cuộc Sống Trong Rừng"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Transmission_3.5.B1
@@ -237,7 +241,7 @@
     - title:
         en: "Dipping and Spraying"
         vi: "Phun và Tẩm"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.3.B1
@@ -279,7 +283,7 @@
     - title:
         en: "Connection with Minorities"
         vi: "Kết Nối Với Người Dân Tộc"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.6.B1
@@ -287,7 +291,7 @@
     - title:
         en: "At the Border"
         vi: "Tại Biên Giới"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.6.B2
@@ -318,7 +322,7 @@
     - title:
         en: "The Health Post"
         vi: "Trạm Y Tế"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.8.B1
@@ -326,7 +330,7 @@
     - title:
         en: "The Activities"
         vi: "Các Hoạt Động"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.8.B2
@@ -334,7 +338,7 @@
     - title:
         en: "Fighting The Vector"
         vi: "Phòng Chống Trung Gian"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.8.B3
@@ -342,7 +346,7 @@
     - title:
         en: "More Prevention"
         vi: "Các Cách Phòng Chống Khác"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Prevention_4.8.B4
@@ -374,7 +378,7 @@
     - title:
         en: "Improvements to Diagnosis"
         vi: "Cải Tiến Trong Chuẩn Đoán"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Treatment_5.1.B1
@@ -416,7 +420,7 @@
     - title:
         en: "Investing in Malaria"
         vi: "Đầu Tư vào Sốt Rét"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Treatment_5.4.B1
@@ -458,7 +462,7 @@
     - title:
         en: "Drug Resistance Research"
         vi: "Nghiên Cứu Kháng Thuôc"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Treatment_5.7.B1
@@ -490,7 +494,7 @@
     - title:
         en: "Border Communication"
         vi: "Truyền Thông tại Biên Giới"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Communication_6.2.B1
@@ -498,7 +502,7 @@
     - title:
         en: "Changes in Attitude"
         vi: "Thay Đổi Hành Vi"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Communication_6.2.B2
@@ -529,7 +533,7 @@
     - title:
         en: "Communication Effectiveness"
         vi: "Hiệu Quả Từ Truyền Thông"
-      onliner:
+      oneliner:
         en:
         vi:
       video: 0113_POC_PRO2_Communication_6.4.B1

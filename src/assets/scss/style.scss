@@ -13,8 +13,6 @@ The main SCSS file for everything, yep
 @import "layout";
 @import "syntax-highlighting";
 
-@import "partials/nav";
-
 @import "plugins/video-js.scss";
 //@import "plugins/flickity.min.scss";
 @import "plugins/_colors.scss";
@@ -27,3 +25,7 @@ The main SCSS file for everything, yep
 @import "plugins/_flipster-custom.scss";
 
 @import "chapters";
+@import "partials/nav";
+@import "partials/modal";
+@import "partials/box-grid";
+@import "partials/sitemap";

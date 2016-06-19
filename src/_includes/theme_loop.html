@@ -50,10 +50,18 @@
       {% if theme.extras %}
         <aside class="extras">
           <h3>{{ site.data.sitecopy.[site.active_lang]extraheading }}</h3>
+
+
           <div class="buttons">
 
           {% for extra in theme.extras %}
-            <a href="" data-modal="#{{extra.video}}_modal" class="modal__button modal__trigger">{{extra.title[site.active_lang]}}</a>
+            <a href="" data-modal="#{{extra.video}}_modal" class="extra_card modal__trigger {{extra.type}}">
+              <img src="{{site.baseurl}}/assets/images/{{extra.image}}" alt="">
+              <div class="caption">
+                <h2>{{extra.title[site.active_lang]}}</h2>
+                <p>{{extra.oneliner[site.active_lang]}}</p>
+              </div>
+            </a>
             <!-- Modal -->
           	<div id="{{extra.video}}_modal" class="modal modal__bg" role="dialog" aria-hidden="true">
           		<div class="modal__dialog">

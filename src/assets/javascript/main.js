@@ -82,10 +82,15 @@
     // When a video is played pause all other playback
     $(".video-js").each(function (videoIndex) {
 
-      var videoId = $(this).attr("id");
+      var videoId = $(this).attr('id');
+      var blurb = $(this).parents('.main_video');
 
       videojs(videoId).ready(function() {
         this.on("play", function(e) {
+
+          $(blurb).addClass('playing');
+          $(blurb).removeClass('paused');
+
           //pause other video
           $(".video-js").each(function(index) {
             if (videoIndex !== index) {
@@ -93,12 +98,11 @@
             }
           });
         });
-        // this.on("pause", function () {
-        //   this.on("play", function () {
-        //     this.load();
-        //     this.play();
-        //   });
-        // })
+
+        this.on("pause", function(e) {
+          $(blurb).removeClass('playing');
+          $(blurb).addClass('paused');
+        });
       });
 
 
@@ -119,11 +123,31 @@
     });
   }
 
+  function sitemapOverlay() {
+    var isLateralNavAnimating = false;
+
+    //open/close lateral navigation
+    $('.cd-nav-trigger').on('click', function(event){
+      event.preventDefault();
+      //stop if nav animation is running
+      if( !isLateralNavAnimating ) {
+        if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true;
+
+        $('body').toggleClass('navigation-is-open');
+        $('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+          //animation is over
+          isLateralNavAnimating = false;
+        });
+      }
+    });
+
+
+  }
 
 
 
   $(window).scroll(function() {
-    checkActive();
+    //checkActive();
   });
 
 
@@ -131,6 +155,7 @@
     // scrollTo('.mainMenu-links')		;
     scrollTo();
     scrollToTop();
+        sitemapOverlay();
   });
 
   function scrollTo() {
@@ -213,7 +238,10 @@
   });
 
 
+
+
 }(jQuery));
+
 
 
 var Modal = (function() {
