@@ -68,6 +68,6 @@ bower_components
 aws-credentials.json
 rsync-credentials.json
 
-src/assets/videos/*
-dist/assets/videos/*
-.publish/assets/videos
+# src/assets/videos/*
+# dist/assets/videos/*
+# .publish/assets/videos
